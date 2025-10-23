@@ -5,4 +5,10 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(PacMan src/main.cpp
-        include/Dice.h)
+        include/Dice.h
+        src/Dice.cpp
+        include/Player.h
+        src/Game.cpp
+        include/Game.h
+        src/Player.cpp
+        src/Player.h)
