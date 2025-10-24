@@ -12,6 +12,7 @@ class Player
 {
 public:
     explicit Player(const std::string& name);
+    explicit Player(const std::string& name, const int id);
     bool is_turn();
     void print_hand() const;
     void create_hand(int count);
@@ -21,7 +22,8 @@ public:
 
 private:
     std::string name_;
-    bool turn_ = false;
+    int player_id_;
+    bool is_turn_ = false;
     std::vector<Dice> hand_;
 };
 

@@ -8,8 +8,15 @@
 #include <string>
 
 Player::Player(const std::string& name)
+    : name_(name), player_id_(0), is_turn_(false)
 {
-    name_ = name;
+
+}
+
+Player::Player(const std::string& name, const int id)
+    : name_(name), player_id_(id), is_turn_(false)
+{
+
 }
 
 bool Player::is_turn()

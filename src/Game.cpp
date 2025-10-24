@@ -34,8 +34,9 @@ void Game::print_player_hands() const
     }
 }
 
-Player& get_player(std::string name)
+Player& get_player(int id)
 {
+
 
 }
 

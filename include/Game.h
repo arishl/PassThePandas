@@ -7,15 +7,16 @@
 
 #include "Player.h"
 #include "Dice.h"
+#include <map>
 
 class Game
 {
 public:
-    Game(std::vector<Player>&& players, int dice_per_player);
+    Game(std::map<int, Player>&& players, int dice_per_player);
     void print_players() const;
     void print_player_hands() const;
 private:
-    std::vector<Player> players_;
+    std::map<int, Player> players_;
     std::vector<Dice> dice_in_center = {};
 };
 
