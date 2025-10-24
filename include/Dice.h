@@ -5,6 +5,7 @@
 #ifndef PACMAN_ENUMS_H
 #define PACMAN_ENUMS_H
 #include <random>
+#include <ostream>
 
 enum class Face
 {
@@ -16,9 +17,12 @@ enum class Face
 
 class Dice
 {
+public:
     Dice();
-    void roll_dice(std::mt19937& gen);
-    static void create_dice();
+    void roll_dice();
+    static Dice create_dice();
+    [[nodiscard]] std::string stringify() const;
+    friend std::ostream& operator<<(std::ostream& os, const Dice& obj);
 private:
     Face face_;
 };

@@ -10,10 +10,14 @@
 
 class Player
 {
-    explicit Player(std::string name);
+public:
+    explicit Player(const std::string& name);
     bool is_turn();
-    void print_hand();
+    void print_hand() const;
     void create_hand(int count);
+    [[nodiscard]] std::string get_name() const;
+    void roll_dice();
+
 
 private:
     std::string name_;

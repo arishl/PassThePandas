@@ -7,17 +7,13 @@
 
 Dice::Dice()
 {
-    roll_dice()
+    roll_dice();
 }
 
-static Dice create_dice()
+void Dice::roll_dice()
 {
-    Dice d {};
-    return d;
-}
-
-void Dice::roll_dice(std::mt19937& gen)
-{
+    std::random_device rd;
+    std::mt19937 gen(rd());
     std::uniform_int_distribution<> dice(1, 6);
     int roll = dice(gen);
     switch (roll)
@@ -36,3 +32,32 @@ void Dice::roll_dice(std::mt19937& gen)
     }
 }
 
+Dice Dice::create_dice()
+{
+    return {};
+}
+
+std::string Dice::stringify() const
+{
+    switch (face_)
+    {
+    case Face::Bamboo:
+        return "Bamboo";
+        break;
+    case Face::Water:
+        return "Water";
+        break;
+    case Face::Panda:
+        return "Panda";
+        break;
+    default:
+        return "Blank";
+    }
+
+}
+
+std::ostream& operator<<(std::ostream& os, const Dice& obj)
+{
+    os << obj.stringify();
+    return os;
+}

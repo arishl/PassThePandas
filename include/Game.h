@@ -10,10 +10,13 @@
 
 class Game
 {
-    Game(std::vector<Player> players, int dice_count_player);
+public:
+    Game(std::vector<Player>&& players, int dice_per_player);
+    void print_players() const;
+    void print_player_hands() const;
 private:
     std::vector<Player> players_;
-    int dice_in_center = 0;
+    std::vector<Dice> dice_in_center = {};
 };
 
 
